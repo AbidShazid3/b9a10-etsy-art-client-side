@@ -1,13 +1,27 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 
 const NavBar = () => {
+    const { user, loading, signOutUser } = useContext(AuthContext);
+
+    const handleSignOut = () => {
+        signOutUser()
+            .then()
+            .catch(error => {
+                console.log(error.message);
+            })
+    }
 
     const links = <>
         <NavLink to="/" className={({ isActive }) => isActive ? 'text-[#23BE0A] font-bold' : ''}>Home</NavLink>
         <NavLink to="/allArtCraft" className={({ isActive }) => isActive ? 'text-[#23BE0A] font-bold' : ''}>All Art & Craft</NavLink>
-        <NavLink to="/addCraftItem" className={({ isActive }) => isActive ? 'text-[#23BE0A] font-bold' : ''}>Add Craft Item</NavLink>
-        <NavLink to="/myList" className={({ isActive }) => isActive ? 'text-[#23BE0A] font-bold' : ''}>My Art & Craft List</NavLink>
+        {user &&
+            <>
+                <NavLink to="/addCraftItem" className={({ isActive }) => isActive ? 'text-[#23BE0A] font-bold' : ''}>Add Craft Item</NavLink>
+                <NavLink to="/myArtList" className={({ isActive }) => isActive ? 'text-[#23BE0A] font-bold' : ''}>My Art & Craft List</NavLink>
+            </>}
     </>
 
     return (
@@ -29,9 +43,19 @@ const NavBar = () => {
                         {links}
                     </ul>
                 </div>
-                <div className="navbar-end gap-2">
-                    <Link to="/logIn" className="btn btn-accent text-base">Log In</Link>
-                    <Link to="/register" className="btn btn-accent text-base">Register</Link>
+                <div className="navbar-end">
+                    {
+                        user ?
+                            <div className="flex gap-2 items-center">
+                                <img src={user?.photoURL || "https://t4.ftcdn.net/jpg/04/72/81/55/360_F_472815510_sdB7bklhuyVQ9eCx49WUV3CvhoLcSsvj.jpg"} alt="" title={user?.displayName || "Null"} className="rounded-full w-8 h-8 md:w-10 md:h-10 lg:w-10 lg:h-10" />
+                                <button onClick={handleSignOut} className="btn btn-accent text-lg">Sign Out</button>
+                            </div>
+                            :
+                            <div>
+                                <Link to="/login" className="btn mr-2 btn-accent text-lg">{loading ? "Loading..." : "Log In"}</Link>
+                                <Link to="/register" className="btn btn-accent text-lg">{loading ? "Loading..." : "Register"}</Link>
+                            </div>
+                    }
                 </div>
             </div>
         </div>

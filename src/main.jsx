@@ -11,6 +11,10 @@ import Home from './components/HomePage/Home';
 import AuthProvider from './components/Provider/AuthProvider';
 import LogIn from './components/LogIn/LogIn';
 import Register from './components/Register/Register';
+import AllArtCraft from './components/AllArtCraft/AllArtCraft';
+import AddCraftItem from './components/AddCraftItem/AddCraftItem';
+import MyArtCraftList from './components/MyArtCraftList/MyArtCraftList';
+import PrivateRoutes from './components/Routes/PrivateRoutes';
 
 const router = createBrowserRouter([
   {
@@ -21,6 +25,18 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>
+      },
+      {
+        path: "/allArtCraft",
+        element: <AllArtCraft></AllArtCraft>
+      },
+      {
+        path: "/addCraftItem",
+        element: <PrivateRoutes><AddCraftItem></AddCraftItem></PrivateRoutes>
+      },
+      {
+        path: "/myArtList",
+        element: <PrivateRoutes><MyArtCraftList></MyArtCraftList></PrivateRoutes>
       },
       {
         path: "/logIn",

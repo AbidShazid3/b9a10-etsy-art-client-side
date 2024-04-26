@@ -1,10 +1,15 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FaRegEye, FaEyeSlash } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
+    const {createUser, updateUserProfile, setReload} = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const handleRegister = e =>{
         e.preventDefault();
@@ -13,8 +18,37 @@ const Register = () => {
         const email = form.email.value;
         const image = form.image.value;
         const pass = form.password.value;
-        const registerUser = {name, email, image, pass}
-        console.log(registerUser);
+        const currentUser = {name, email, image, pass}
+        console.log(currentUser);
+        if(pass.length < 6){
+            toast.error("Password should be at least 6 characters");
+            return;
+        }
+        else if(!/[A-Z]/.test(pass)){
+            toast.error("Password Must have an Uppercase letter");
+            return;
+        }
+        else if(!/[a-z]/.test(pass)){
+            toast.error("Password Must have a Lowercase letter");
+            return;
+        }
+
+        createUser(email, pass)
+        .then(result=> {
+            const registerUser = result.user;
+            console.log(registerUser);
+            form.reset();
+            toast.success('Login successful!');
+            updateUserProfile(name, image)
+            .then(()=>{
+                setReload(true);
+                navigate("/");
+            })
+        })
+        .catch(error=> {
+            console.log(error.message);
+        })
+
     }
 
     return (
