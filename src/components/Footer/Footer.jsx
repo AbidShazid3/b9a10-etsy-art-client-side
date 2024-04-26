@@ -8,7 +8,7 @@ const Footer = () => {
         <div>
             <footer className="footer p-8 bg-base-300 text-base-content">
                 <aside>
-                    <p className="text-2xl font-bold">ETSY</p>
+                    <p className="text-2xl text-orange-600 font-bold">ETSY</p>
                     <p>Providing reliable since 1992</p>
                 </aside>
                 <nav>
@@ -39,7 +39,7 @@ const Footer = () => {
             </footer>
             <footer className="footer footer-center p-10 bg-base-300 text-base-content">
                 <aside>
-                    <p>Copyright © 2024 - All right reserved by ACME Industries Ltd</p>
+                    <p>Copyright © 2024 - All right reserved by ETSY</p>
                 </aside>
             </footer>
         </div>

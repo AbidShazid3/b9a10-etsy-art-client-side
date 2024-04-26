@@ -8,7 +8,6 @@ const NavBar = () => {
         <NavLink to="/allArtCraft" className={({ isActive }) => isActive ? 'text-[#23BE0A] font-bold' : ''}>All Art & Craft</NavLink>
         <NavLink to="/addCraftItem" className={({ isActive }) => isActive ? 'text-[#23BE0A] font-bold' : ''}>Add Craft Item</NavLink>
         <NavLink to="/myList" className={({ isActive }) => isActive ? 'text-[#23BE0A] font-bold' : ''}>My Art & Craft List</NavLink>
-        <NavLink to="/about" className={({ isActive }) => isActive ? 'text-[#23BE0A] font-bold' : ''}>About</NavLink>
     </>
 
     return (
@@ -23,7 +22,7 @@ const NavBar = () => {
                             {links}
                         </ul>
                     </div>
-                    <Link to="/" className="btn btn-ghost font-bold md:text-2xl lg:text-2xl">ETSY</Link>
+                    <Link to="/" className="btn btn-ghost text-orange-600 font-bold md:text-2xl lg:text-2xl">ETSY</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex ">
                     <ul className="menu menu-horizontal text-lg px-1 lg:gap-6">
@@ -31,8 +30,8 @@ const NavBar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end gap-2">
-                    <Link to="/login" className="btn btn-accent text-lg">Log In</Link>
-                    <Link to="/register" className="btn btn-accent text-lg">Register</Link>
+                    <Link to="/logIn" className="btn btn-accent text-base">Log In</Link>
+                    <Link to="/register" className="btn btn-accent text-base">Register</Link>
                 </div>
             </div>
         </div>

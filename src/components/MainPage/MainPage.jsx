@@ -6,7 +6,7 @@ import NavBar from "../NavBar/NavBar";
 const MainPage = () => {
     return (
         <div>
-            <div className="container mx-auto p-2 md:p-3 lg:px-4">
+            <div className="container mx-auto p-2 md:p-3 lg:px-4 font-roboto">
                 <NavBar></NavBar>
                 <Outlet></Outlet>
             </div>
