@@ -3,6 +3,7 @@ import Banner from "./Banner";
 import CraftItems from "./CraftItems";
 import ClientSatisfy from "./ClientSatisfy";
 import image1 from "../../assets/images/monet-1455482.jpg"
+import Exhibitions from "./Exhibitions";
 
 
 const Home = () => {
@@ -23,11 +24,11 @@ const Home = () => {
                 }
             </div>
             <div>
-                <h2 className="text-4xl font-bold text-center mt-10 text-orange-500">Art & Craft Categories</h2>
+                <h2 className="text-4xl font-bold text-center mt-20 text-orange-500">Art & Craft Categories</h2>
 
             </div>
-            <div className="mt-10">
-                <h2 className="text-4xl font-bold text-center mt-10 text-orange-500">Exhibition, Event & Programs</h2>
+            <div className="mt-20">
+                <h2 className="text-4xl font-bold text-center text-orange-500">Exhibition, Event & Programs</h2>
                 <div className="md:flex lg:flex gap-5 mt-5 p-2 items-center">
                     <div className="flex-1">
                         <h2 className="text-4xl font-bold mt-10">Edouard Manet</h2>
@@ -38,7 +39,7 @@ const Home = () => {
                         <img src={image1} alt="" className="flex h-96 rounded-lg" />
                     </div>
                 </div>
-                
+                <Exhibitions></Exhibitions>
             </div>
             <ClientSatisfy></ClientSatisfy>
         </div>

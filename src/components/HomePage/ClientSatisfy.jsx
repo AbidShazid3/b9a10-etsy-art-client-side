@@ -3,7 +3,7 @@ import { FaUsersViewfinder } from "react-icons/fa6";
 
 const ClientSatisfy = () => {
     return (
-        <div className="mt-10 text-center">
+        <div className="mt-20 text-center">
             <h2 className="text-4xl font-bold text-orange-500">ETSY Activity</h2>
             <div className="stats stats-vertical md:stats-horizontal lg:stats-horizontal shadow mt-5">
 
