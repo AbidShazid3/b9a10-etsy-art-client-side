@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import { Tooltip } from 'react-tooltip';
+import 'react-tooltip/dist/react-tooltip.css';
 
 
 const NavBar = () => {
@@ -47,7 +49,11 @@ const NavBar = () => {
                     {
                         user ?
                             <div className="flex gap-2 items-center">
-                                <img src={user?.photoURL || "https://t4.ftcdn.net/jpg/04/72/81/55/360_F_472815510_sdB7bklhuyVQ9eCx49WUV3CvhoLcSsvj.jpg"} alt="" title={user?.displayName || "Null"} className="rounded-full w-8 h-8 md:w-10 md:h-10 lg:w-10 lg:h-10" />
+                                <img src={user?.photoURL || "https://t4.ftcdn.net/jpg/04/72/81/55/360_F_472815510_sdB7bklhuyVQ9eCx49WUV3CvhoLcSsvj.jpg"} alt="" className="rounded-full w-8 h-8 md:w-10 md:h-10 lg:w-10 lg:h-10" 
+                                data-tooltip-id="my-tooltip"
+                                data-tooltip-content={user?.displayName || "Null"}
+                                />
+                                <Tooltip id="my-tooltip" />
                                 <button onClick={handleSignOut} className="btn btn-accent text-lg">Sign Out</button>
                             </div>
                             :
