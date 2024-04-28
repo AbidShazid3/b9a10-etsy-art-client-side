@@ -1,5 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
+import { Bounce } from "react-awesome-reveal";
 
 const UpdateCraft = () => {
     const updateItem = useLoaderData();
@@ -43,7 +44,9 @@ const UpdateCraft = () => {
 
     return (
         <div>
-            <h2 className="text-4xl font-bold text-orange-500 text-center mt-10">Update Art & Craft Item</h2>
+            <Bounce>
+                <h2 className="text-4xl font-bold text-orange-500 text-center mt-10">Update Art & Craft Item</h2>
+            </Bounce>
             <div className="bg-pink-200 mt-10">
                 <form onSubmit={handleUpdateItem} className="card-body grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
                     <div className="form-control">
