@@ -1,9 +1,41 @@
 import PropTypes from "prop-types";
 import { FaStar } from "react-icons/fa";
+import Swal from "sweetalert2";
 
-const MyArtCraftDetails = ({ item }) => {
-    console.log(item);
-    const { itemName, price, rating, customization, status, photo } = item;
+const MyArtCraftDetails = ({ item, setControl, control }) => {
+    const { _id, itemName, price, rating, customization, status, photo } = item;
+    
+    const handleDelete = _id =>{
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+          }).then((result) => {
+            if (result.isConfirmed) {
+                console.log("deleted");
+                fetch(`http://localhost:5000/myArtCraft/${_id}`, {
+                    method: "DELETE",
+                })
+                .then(res=> res.json())
+                .then(data=> {
+                    console.log(data);
+                    if(data.deletedCount > 0){
+                        Swal.fire({
+                            title: "Deleted!",
+                            text: "Item has been deleted.",
+                            icon: "success"
+                          });
+                          setControl(!control);
+                    }
+                })
+            }
+          });
+    }
+
     return (
         <div>
             <div className="card card-compact bg-base-100 shadow-xl">
@@ -28,7 +60,7 @@ const MyArtCraftDetails = ({ item }) => {
                     </div>
                     <div className="">
                         <button className="btn btn-accent mr-3">Update</button>
-                        <button className="btn btn-accent">Delete</button>
+                        <button onClick={ ()=> handleDelete(_id)} className="btn btn-accent">Delete</button>
                     </div>
                 </div>
             </div>
@@ -38,6 +70,8 @@ const MyArtCraftDetails = ({ item }) => {
 
 MyArtCraftDetails.propTypes={
     item: PropTypes.object,
+    setControl: PropTypes.func,
+    control: PropTypes.bool
 }
 
 export default MyArtCraftDetails;

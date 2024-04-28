@@ -6,6 +6,8 @@ import MyArtCraftDetails from "./MyArtCraftDetails";
 const MyArtCraftList = () => {
     const {user} = useContext(AuthContext);
     const [items, setItems] = useState([]);
+    const [control, setControl] = useState(false);
+
     useEffect( ()=>{
         fetch(`http://localhost:5000/myArtCraft/${user?.email}`)
         .then(res=> res.json())
@@ -13,7 +15,7 @@ const MyArtCraftList = () => {
             console.log(data);
             setItems(data);
         })
-    }, [user])
+    }, [user, control])
     return (
         <div className="mt-10">
             <h2 className="text-4xl font-bold text-orange-500 text-center">My Art & Craft Items</h2>
@@ -22,6 +24,8 @@ const MyArtCraftList = () => {
                     items.map(item=> <MyArtCraftDetails 
                         key={item._id} 
                         item={item} 
+                        control={control} 
+                        setControl={setControl} 
                     ></MyArtCraftDetails>)
                 }
             </div>
