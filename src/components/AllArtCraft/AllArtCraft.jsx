@@ -32,7 +32,7 @@ const AllArtCraft = () => {
                                 <td>{art.status}</td>
                                 <td>${art.price}</td>
                                 <td>
-                                    <Link className="btn btn-sm">View Details</Link>
+                                    <Link to={`/artCraftDetails/${art._id}`} className="btn btn-sm">View Details</Link>
                                 </td>
                             </tr>)
                         }
