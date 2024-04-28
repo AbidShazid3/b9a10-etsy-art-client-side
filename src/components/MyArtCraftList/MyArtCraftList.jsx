@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
+import MyArtCraftDetails from "./MyArtCraftDetails";
 
 
 const MyArtCraftList = () => {
@@ -14,8 +15,16 @@ const MyArtCraftList = () => {
         })
     }, [user])
     return (
-        <div>
-            <h2>{items.length}</h2>
+        <div className="mt-10">
+            <h2 className="text-4xl font-bold text-orange-500 text-center">My Art & Craft Items</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 mt-5">
+                {
+                    items.map(item=> <MyArtCraftDetails 
+                        key={item._id} 
+                        item={item} 
+                    ></MyArtCraftDetails>)
+                }
+            </div>
         </div>
     );
 };
