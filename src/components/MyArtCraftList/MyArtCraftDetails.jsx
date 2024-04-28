@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import { FaStar } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const MyArtCraftDetails = ({ item, setControl, control }) => {
@@ -59,7 +60,7 @@ const MyArtCraftDetails = ({ item, setControl, control }) => {
                         <p>{status}</p>
                     </div>
                     <div className="">
-                        <button className="btn btn-accent mr-3">Update</button>
+                        <Link to={`/updateCraftItem/${_id}`} className="btn btn-accent mr-3">Update</Link>
                         <button onClick={ ()=> handleDelete(_id)} className="btn btn-accent">Delete</button>
                     </div>
                 </div>

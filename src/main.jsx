@@ -17,6 +17,7 @@ import MyArtCraftList from './components/MyArtCraftList/MyArtCraftList';
 import PrivateRoutes from './components/Routes/PrivateRoutes';
 import CraftCardDetails from './components/CraftCardDetails/CraftCardDetails';
 import ArtCraftDetails from './components/ArtCraftDetails/ArtCraftDetails';
+import UpdateCraft from './components/UpdateCraft/UpdateCraft';
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,11 @@ const router = createBrowserRouter([
       {
         path: "/myArtCraft",
         element: <PrivateRoutes><MyArtCraftList></MyArtCraftList></PrivateRoutes>
+      },
+      {
+        path: "/updateCraftItem/:id",
+        element: <UpdateCraft></UpdateCraft>,
+        loader: ({params})=> fetch(`http://localhost:5000/craft/${params.id}`)
       },
       {
         path: "/logIn",
