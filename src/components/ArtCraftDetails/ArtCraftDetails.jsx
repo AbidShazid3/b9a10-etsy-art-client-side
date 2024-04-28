@@ -2,7 +2,7 @@ import { useLoaderData } from "react-router-dom";
 
 const ArtCraftDetails = () => {
     const artCraftDetails = useLoaderData();
-    const { itemName, subcategory_Name, description, price, rating, customization, processing_time, status, name, email, photo } = artCraftDetails
+    const { itemName, subcategory_Name, description, price, rating, customization, processing_time, status, photo } = artCraftDetails
     console.log(artCraftDetails);
     return (
         <div className="mt-10">

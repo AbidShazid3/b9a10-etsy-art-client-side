@@ -22,7 +22,7 @@ const NavBar = () => {
         {user &&
             <>
                 <NavLink to="/addCraftItem" className={({ isActive }) => isActive ? 'text-[#23BE0A] font-bold' : ''}>Add Craft Item</NavLink>
-                <NavLink to="/myArtList" className={({ isActive }) => isActive ? 'text-[#23BE0A] font-bold' : ''}>My Art & Craft List</NavLink>
+                <NavLink to="/myArtCraft" className={({ isActive }) => isActive ? 'text-[#23BE0A] font-bold' : ''}>My Art & Craft List</NavLink>
             </>}
     </>
 
