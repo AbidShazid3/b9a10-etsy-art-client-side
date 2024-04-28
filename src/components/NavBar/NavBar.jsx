@@ -58,8 +58,8 @@ const NavBar = () => {
                             </div>
                             :
                             <div>
-                                <Link to="/login" className="btn mr-2 btn-accent text-lg">{loading ? "Loading..." : "Log In"}</Link>
-                                <Link to="/register" className="btn btn-accent text-lg">{loading ? "Loading..." : "Register"}</Link>
+                                <Link to="/login" className="btn btn-sm btn-accent text-lg mr-1">{loading ? "Loading..." : "LogIn"}</Link>
+                                <Link to="/register" className="btn btn-sm btn-accent text-lg">{loading ? "Loading..." : "Register"}</Link>
                             </div>
                     }
                 </div>
