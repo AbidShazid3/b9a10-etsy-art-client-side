@@ -18,7 +18,7 @@ const MyArtCraftDetails = ({ item, setControl, control }) => {
           }).then((result) => {
             if (result.isConfirmed) {
                 console.log("deleted");
-                fetch(`http://localhost:5000/myArtCraft/${_id}`, {
+                fetch(`https://etsy-art-server.vercel.app/myArtCraft/${_id}`, {
                     method: "DELETE",
                 })
                 .then(res=> res.json())

@@ -9,7 +9,7 @@ const MyArtCraftList = () => {
     const [control, setControl] = useState(false);
 
     useEffect( ()=>{
-        fetch(`http://localhost:5000/myArtCraft/${user?.email}`)
+        fetch(`https://etsy-art-server.vercel.app/myArtCraft/${user?.email}`)
         .then(res=> res.json())
         .then(data=> {
             console.log(data);

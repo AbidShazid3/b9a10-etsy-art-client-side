@@ -28,22 +28,22 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/craft")
+        loader: () => fetch("https://etsy-art-server.vercel.app/craft")
       },
       {
         path: "/craftCardDetails/:id",
         element: <PrivateRoutes><CraftCardDetails></CraftCardDetails></PrivateRoutes>,
-        loader: ({params}) => fetch(`http://localhost:5000/craft/${params.id}`)
+        loader: ({params}) => fetch(`https://etsy-art-server.vercel.app/craft/${params.id}`)
       },
       {
         path: "/allArtCraft",
         element: <AllArtCraft></AllArtCraft>,
-        loader: () => fetch("http://localhost:5000/craft")
+        loader: () => fetch("https://etsy-art-server.vercel.app/craft")
       },
       {
         path: "/artCraftDetails/:id",
         element: <PrivateRoutes><ArtCraftDetails></ArtCraftDetails></PrivateRoutes>,
-        loader: ({params}) => fetch(`http://localhost:5000/craft/${params.id}`)
+        loader: ({params}) => fetch(`https://etsy-art-server.vercel.app/craft/${params.id}`)
       },
       {
         path: "/addCraftItem",
@@ -56,7 +56,7 @@ const router = createBrowserRouter([
       {
         path: "/updateCraftItem/:id",
         element: <PrivateRoutes><UpdateCraft></UpdateCraft></PrivateRoutes>,
-        loader: ({params})=> fetch(`http://localhost:5000/craft/${params.id}`)
+        loader: ({params})=> fetch(`https://etsy-art-server.vercel.app/craft/${params.id}`)
       },
       {
         path: "/logIn",

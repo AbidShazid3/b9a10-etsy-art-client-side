@@ -24,7 +24,7 @@ const AddCraftItem = () => {
         const artDetails = { itemName, subcategory_Name, description, price, rating, customization, processing_time, status, name, email, photo }
         console.log(artDetails);
 
-        fetch("http://localhost:5000/craft", {
+        fetch("https://etsy-art-server.vercel.app/craft", {
             method: "POST",
             headers: {
                 "content-type": "application/json"

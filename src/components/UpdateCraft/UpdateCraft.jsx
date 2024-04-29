@@ -21,7 +21,7 @@ const UpdateCraft = () => {
         const updateDetails = { itemName, subcategory_Name, description, price, rating, customization, processing_time, status, photo }
         console.log(updateDetails);
 
-        fetch(`http://localhost:5000/craft/${_id}`, {
+        fetch(`https://etsy-art-server.vercel.app/craft/${_id}`, {
             method: "PUT",
             headers: {
                 "content-type": "application/json"
